@@ -1,11 +1,22 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/AppSlice";
 
 const Header = () => {
+const dispatch = useDispatch();
+
+const toggleMenuHandler = () =>{
+  dispatch(toggleMenu());
+};
+
+  
   return (
     <div className="grid grid-flow-col p-5 m-1 shadow-lg">
       <div className="flex col-span-10">
         <img
-          className="h-12" // Increase the height to make the logo bigger
+          onClick={()=> toggleMenuHandler()}
+          className="h-12 cursor-pointer" // Increase the height to make the logo bigger
+          
           alt="logo"
           src="https://www.iconbolt.com/preview/facebook/zwicon/hamburger-menu.svg"
         ></img>
